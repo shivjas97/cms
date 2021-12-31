@@ -1,0 +1,129 @@
+{% extends 'cmsadmin/master.html' %} 
+{% block maincontent %} 
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"> Edit Project</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">General</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+    <form action="" method="post">
+                  {% csrf_token %}
+                  <label for="exampleInput"></label>
+                 <input type="hidden" class="form-control" name="txtid" value="{{res.id}}"  required/>
+              </div>
+              <div class="form-group">
+                <label for="inputName">Project Name</label>
+                <input type="text" name="txtname" class="form-control" value="{{res.name}}"  required>
+              </div>
+              <div class="form-group">
+                <label for="inputDescription">Project Description</label>
+                <textarea  name="txtdes" class="form-control" value="{{res.desc}}"  rows="3" required>{{res.desc}}</textarea>
+                
+              </div>
+              <div class="form-group">
+                <label for="inputStatus">Status</label>
+                <select name="txtstatus" class="form-control custom-select" value="{{res.status}}"  required>
+                  <option id="{{res.status}}">{{res.status}}</option>
+                  <option>New Project</option> 
+                  <option>Modernize Project</option>
+                  <option>Redevlop Old Project </option>
+                  
+                </select>
+              </div>
+             
+              
+              <div class="form-group">
+                <label for="inputClientCompany">Date</label>
+                <input type="datetime-local" name="txtdate" class="form-control" value="{{res.date}}"  required>
+              </div>
+              <div class="form-group">
+                <label for="inputStatus">Select Type</label>
+                <select name="txttype" class="form-control custom-select" value="{{res.type}}" required>
+                  <option >{{res.type}}</option>
+                  <option>Web Based Application</option> 
+                  <option>Desktop Application</option>
+                  <option>Android or IOS APPS</option>
+                  <option>Cross Pleatform APPS</option>
+                  <option>Database Apps</option>
+                  <option>Application For Automobile </option>
+                  <option>Apps For Wearable </option>
+                  <option>AI/ML/IOT Apps  </option>
+                  
+                </select>
+              </div>
+              </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <div class="col-md-6">
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title">Budget</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputEstimatedBudget">Estimated budget</label>
+                <input type="number" name="txtestbudget" class="form-control" value="{{res.estbudget}}" required>
+              </div>
+              <div class="form-group">
+                <label for="inputSpentBudget">Total amount spent</label>
+                <input type="number" name="txtestamt" class="form-control" value="{{res.estamt}}" required>
+              </div>
+              <div class="form-group">
+                <label for="inputEstimatedDuration">Estimated project duration</label>
+                <input type="number" name="txtesttime" class="form-control" value="{{res.estdur}}" required>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a href="#" class="btn btn-secondary">Cancel</a>
+          <input type="submit" value="Update Porject" class="btn btn-success float-right">
+        
+    </form>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  {% endblock %} 

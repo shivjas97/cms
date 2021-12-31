@@ -1,0 +1,86 @@
+{% extends 'cmsadmin/master.html' %} 
+{% block maincontent %} 
+<!-- Main content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Edit Clint</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <div class="col-sm-6">
+    <!-- general form elements -->
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Edit CLINT</h3>
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+    <form action="" method="post">
+          {% csrf_token %}
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInput"></label>
+                 <input type="hidden" class="form-control" name="txtid" value="{{res.id}}" required/>
+              </div>
+            <div class="form-group">
+                <label for="exampleInput">Name</label>
+                <input type="text" class="form-control" name="txtname" value="{{res.name}}" required/>
+              </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="txtemail" value="{{res.email}}" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtmobile">Mobile NO.</label>
+            <input type="number" class="form-control" name="txtnumber" value="{{res.mobile}}" required/>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="txtpass" value="{{res.password}}" required/>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Client Company</label>
+            <input type="text" class="form-control" name="txtcom" value="{{res.cname}}"required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Project Name</label>
+            <input type="text" class="form-control" name="txtpname" value="{{res.pname}}" required/>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Location</label>
+            <input type="text" class="form-control" name="txtlocation" value="{{res.location}}"required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">About Clint/Company</label>
+            <input type="text" class="form-control" name="txtabt" value="{{res.about}}" required/>
+          </div>
+          
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button type="submit" name="btnsubmit" value="Update" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+      
+    </div>
+    <!-- /.card -->
+</div>
+<!--/.col (right) -->
+</div>
+<!-- /.row -->
+</div><!-- /.container-fluid -->
+
+</section>
+
+{% endblock %} 
